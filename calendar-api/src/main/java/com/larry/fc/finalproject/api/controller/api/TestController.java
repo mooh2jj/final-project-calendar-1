@@ -16,11 +16,17 @@ public class TestController {
 
     private final JavaMailSender emailSender;
 
+    @GetMapping("/api/test")
+    public String test() {
+        return "test-ok";
+    }
+
     @GetMapping("/api/mail")
     public void sendMail() {
+
         final MimeMessagePreparator preparator = message -> {
             MimeMessageHelper helper = new MimeMessageHelper(message);
-            helper.setTo("ehtjd33@mail.mail");
+            helper.setTo("ehtjd33@gmail.com");
             helper.setSubject("제목입니당~~");
             helper.setText("테슷흐 메일");
         };
